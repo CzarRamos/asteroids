@@ -50,7 +50,7 @@ def main():
             for shot in shots_group:
                 if object.is_colliding(shot):
                     shot.kill()
-                    object.kill()
+                    object.split()
 
         for obj in drawable:
             obj.draw(screen)

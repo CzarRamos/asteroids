@@ -41,11 +41,16 @@ def main():
                 return
         
         screen.fill((0, 0, 0))
+
         updateable.update(dt)
         for object in asteroids_group:
             if object.is_colliding(player) == True:
                 print("Game over!")
                 exit()
+            for shot in shots_group:
+                if object.is_colliding(shot):
+                    shot.kill()
+                    object.kill()
 
         for obj in drawable:
             obj.draw(screen)
